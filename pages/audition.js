@@ -6,6 +6,7 @@ export default function Audition() {
     <>
      <div className='py-20 space-y-10 px-10 lg:px-80 bg-gray-100'> 
         <h2 className='text-4xl font-semibold'>Audition Form</h2>
+        <h2>Coming Soon Currently Working on Website</h2>
         <p>You can give this singing audition through your phone sitting at home. Friends, if you really think that you are a good singer and you can go ahead then only give this audition otherwise you can leave it.</p>
         <p>If you think you are a good singer then you can give this audition. This audition process is online</p>
         <form>
