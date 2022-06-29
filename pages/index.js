@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import hero from '../images/hero.jpg';
+// import hero from '../images/hero.jpg';
+import comingsoon from '../images/comingsoon.jpg';
 import rappers from '../images/rappers.png';
+import bigartprize from '../images/bigartprize.jpeg';
 
 
 export default function Home() {
@@ -11,21 +13,23 @@ export default function Home() {
         <div className="container px-6 py-4 mx-auto lg:flex lg:h-128 lg:py-16 ">
           <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
             <div className="max-w-lg">
+              <h3 className="text-xl tracking-wide text-white text-gray-800 lg:text-1xl lg:text-2xl">
+                We are Looking for New Talents
+              </h3>
               <h2 className="text-xl tracking-wide text-white text-pink-800 lg:text-3xl lg:text-4xl">
                 Big Art - Coming Soon
               </h2>
-              <h1 className="text-xl tracking-wide text-white text-gray-800 lg:text-1xl lg:text-2xl">
-                We are Looking for New Talents
-              </h1>
+
               <p className="mt-4 text-gray-300 text-gray-600">
+                <strong>A Singing Talent Show</strong>
                 If you sing good song, apply for an upcoming auditions conducted by Big Art Team. This forum will give you an opportunity in the singing area. This audition process is started by Filling an Online Form , Send Your Detail and short Audio Clip. We will select 1000 Newly Talented singers for auditions. More Information will Provided soon.
               </p>
 
               <p className="mt-4 text-gray-300 text-gray-600"> For Any Enquiry Feel free to drop us a message</p>
               <div className="mt-6">
-                <Link href="/audition">
+                <Link href="/">
                   <a
-                    className="inline-block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-gray-800"
+                    className="disabled inline-block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-gray-800"
                   >   Fill Audition Form </a>
                 </Link>
                 <Link href="/contact">
@@ -39,9 +43,8 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center justify-center w-full mt-2 lg:h-96 lg:w-1/2">
-            <Image
-
-              src={hero}
+            <Image className='w-100'
+              src={comingsoon}
               alt="Picture of the author"
             />
           </div>
@@ -61,6 +64,17 @@ export default function Home() {
               1. You will get a chance to make your mark. And after your name becomes famous, you will get work.
               2. After the result of this audition you will know whether you are worthy of going to big TV reality show or not.
             </p>
+            <h3 className='text-xl leading-8'>We Will Select Three Top Singers</h3>
+            <Image
+
+              src={bigartprize}
+              alt="Picture of the Prize"
+            />
+            {/* <h1 className='text-2xl md:text-lg text-gray-900'>First Prize will be - 1 Lac +  Audio + Video of Song </h1>
+
+            <h2 className='text-xl text-gray-900 '> Second Prize - 75,000 + Audio</h2>
+
+            <h3 className='text-2xl text-gray-900'>Third Prize - 50,000 + Audio</h3> */}
 
           </li>
           <li className="mb-10 ml-4">
@@ -87,14 +101,14 @@ export default function Home() {
             <p className="text-base font-normal text-gray-500 dark:text-gray-400">
               You can give this singing audition through your phone sitting at home. If you think you are a good singer. And you can move forward in the field of singing. So you can give this audition. The process of auditioning online is very simple.
             </p>
-            <Link href="/audition">
+            <Link href="/">
               <a
                 className="inline-block px-3 py-2 my-4 font-semibold text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-gray-800"
               >   Fill Audition Form </a>
             </Link>
 
           </li>
-          
+
 
         </ol>
 
