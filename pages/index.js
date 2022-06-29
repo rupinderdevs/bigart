@@ -3,7 +3,9 @@ import Link from 'next/link'
 // import hero from '../images/hero.jpg';
 import comingsoon from '../images/comingsoon.jpg';
 import rappers from '../images/rappers.png';
-import bigartprize from '../images/bigartprize.jpeg';
+import mike from '../images/mike.png';
+// import bigartprize from '../images/bigartprize.jpeg';
+
 
 
 export default function Home() {
@@ -13,15 +15,19 @@ export default function Home() {
         <div className="container px-6 py-4 mx-auto lg:flex lg:h-128 lg:py-16 ">
           <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
             <div className="max-w-lg">
-              <h3 className="text-xl tracking-wide text-white text-gray-800 lg:text-1xl lg:text-2xl">
+              <h3 className="text-xl tracking-wide text-white text-gray-800 lg:text-1xl lg:text-2xl leading-10">
                 We are Looking for New Talents
               </h3>
               <h2 className="text-xl tracking-wide text-white text-pink-800 lg:text-3xl lg:text-4xl">
-                Big Art - Coming Soon
+                Big Art - Coming Soon    <Image className='w-32'
+                src={mike}   
+              alt={mike}  
+            />
               </h2>
+             
 
               <p className="mt-4 text-gray-300 text-gray-600">
-                <strong>A Singing Talent Show</strong>
+                <strong>A Singing Talent Show </strong>
                 If you sing good song, apply for an upcoming auditions conducted by Big Art Team. This forum will give you an opportunity in the singing area. This audition process is started by Filling an Online Form , Send Your Detail and short Audio Clip. We will select 1000 Newly Talented singers for auditions. More Information will Provided soon.
               </p>
 
@@ -51,6 +57,82 @@ export default function Home() {
         </div>
       </div>
 
+      {/* pricing */}
+      <div id="app" className="bg-gray-900 p-12">
+  <div className="max-w-lg mx-auto">
+    <h2 className="text-2xl md:text-5xl font-semibold text-center text-gray-100">
+      Final Prizes
+    </h2>
+    <h3 className="text-xl mt-2 text-center text-gray-500">
+    We Will Select Three Top Singers
+          </h3>
+          <p className="mt-1 text-gray-300 text-center">
+       Follow the Process , Fill Audition Form and Send Your Voice to us. We will select best voices for Auditions and will select Top Three Singers Among them. Wish you Good Luck , Go Ahead.
+      </p>
+  </div>
+  <div className="my-8 mt-12 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+    <div className="max-w-xs rounded-md border-2 border-solid border-indigo-600 border-opacity-25 hover:border-opacity-100 px-8 pt-8 pb-4">
+      <h3 className="text-2xl font-semibold text-gray-100">1st Prize</h3>
+     
+      <div className="flex items-center mt-2 mb-4">
+        <h4 className="text-2xl font-semibold text-gray-100 mr-4">100,000/ +  Audio + Video </h4>
+
+      </div>
+      <Link href="/">
+      <button
+        type="button"
+        className="my-2 w-full font-semibold text-indigo-600 hover:text-gray-100 hover:bg-indigo-700 rounded border border-solid border-indigo-600 border-opacity-25 py-3"
+      >
+        Audition Form
+              </button>
+              </Link>
+      {/* <button
+        type="button"
+        className="w-full font-semibold text-gray-100 py-3 rounded border border-solid border-transparent hover:border-indigo-700"
+      >
+        Learn More
+      </button> */}
+    </div>
+    <div className="max-w-xs rounded-md border-2 border-solid border-indigo-600 px-8 pt-8 pb-4">
+      <h3 className="text-2xl font-semibold text-gray-100">2nd Prize</h3>
+     
+      <div className="flex items-center mt-2 mb-4">
+        <h4 className="text-3xl font-semibold text-gray-100 mr-4">75,000/ +  Audio  </h4>
+        {/* <h4 className="text-xs text-gray-500">
+        <br />         
+        </h4> */}
+      </div>
+      <Link href="/">
+      <button
+        type="button"
+        className="my-2 w-full font-semibold text-indigo-600 hover:text-gray-100 hover:bg-indigo-700 rounded border border-solid border-indigo-600 border-opacity-25 py-3"
+      >
+        Audition Form
+              </button>
+              </Link>
+     
+    </div>
+    <div className="max-w-xs rounded-md border-2 border-solid border-indigo-600 border-opacity-25 hover:border-opacity-100 px-8 pt-8 pb-4">
+      <h3 className="text-2xl font-semibold text-gray-100">3rd Prize</h3>
+     
+      <div className="flex items-center mt-2 mb-4">
+        <h4 className="text-3xl font-semibold text-gray-100 mr-4">50,000/ +  Audio </h4>
+
+            </div>
+            <Link href="/">
+      <button
+        type="button"
+        className="my-2 w-full font-semibold text-indigo-600 hover:text-gray-100 hover:bg-indigo-700 rounded border border-solid border-indigo-600 border-opacity-25 py-3"
+      >
+        Audition Form
+              </button>
+              </Link>
+     
+    </div>
+  </div>
+</div>
+
+      
       {/* about  */}
       <div className='my-10 px-5 lg:px-50 xl:px-60'>
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
@@ -61,15 +143,15 @@ export default function Home() {
               You will have two advantages by auditioning here.
             </h3>
             <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-              1. You will get a chance to make your mark. And after your name becomes famous, you will get work.
+              1. You will get a chance to make your mark.
               2. After the result of this audition you will know whether you are worthy of going to big TV reality show or not.
             </p>
-            <h3 className='text-xl leading-8'>We Will Select Three Top Singers</h3>
-            <Image
+           
+            {/* <Image
 
               src={bigartprize}
               alt="Picture of the Prize"
-            />
+            /> */}
             {/* <h1 className='text-2xl md:text-lg text-gray-900'>First Prize will be - 1 Lac +  Audio + Video of Song </h1>
 
             <h2 className='text-xl text-gray-900 '> Second Prize - 75,000 + Audio</h2>
