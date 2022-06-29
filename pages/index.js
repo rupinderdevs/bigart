@@ -12,7 +12,7 @@ export default function Home() {
           <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
             <div className="max-w-lg">
               <h2 className="text-xl tracking-wide text-white text-pink-800 lg:text-3xl lg:text-4xl">
-                Big Art
+                Big Art - Coming Soon
               </h2>
               <h1 className="text-xl tracking-wide text-white text-gray-800 lg:text-1xl lg:text-2xl">
                 We are Looking for New Talents
