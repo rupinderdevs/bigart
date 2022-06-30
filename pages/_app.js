@@ -7,9 +7,9 @@ function MyApp ({ Component, pageProps }) {
   return (
     <>
      <Head>
-          <title>Big Art</title>
+          <title>Form</title>
           <meta charSet='utf-8' />
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />       
+          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         </Head>
      <div>
       <Navbar />
