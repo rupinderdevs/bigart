@@ -1,4 +1,6 @@
+
 import { useState } from 'react';
+import Image from 'next/image'
 import { useS3Upload } from 'next-s3-upload';
 
 export default function UploadTest() {
@@ -16,7 +18,8 @@ export default function UploadTest() {
 
       <button onClick={openFileDialog}>Upload file</button>
 
-      {imageUrl && <img src={imageUrl} />}
+      {imageUrl && <Image src={imageUrl} alt="Picture l" />} 
+      {/* <img src={imageUrl} /> */}
     </div>
   );
 }

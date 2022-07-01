@@ -13,8 +13,8 @@ export default async function handler(req, res) {
 				],
 				payment_method_types: ['card'],
 				mode: 'payment',
-				success_url: `${req.headers.origin}/audition?success=true&session_id={CHECKOUT_SESSION_ID}&id=${id}`,
-				cancel_url: `${req.headers.origin}/audition?canceled=true&id=${id}`,
+				success_url: `${req.headers.origin}/succes?success=true&session_id={CHECKOUT_SESSION_ID}&id=${id}`,
+				cancel_url: `${req.headers.origin}/failed?canceled=true&id=${id}`,
 			});
 			res.redirect(303, session.url);
 		} catch (err) {

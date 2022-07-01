@@ -65,11 +65,11 @@ export default function Home() {
               <h1 className="text-xl tracking-wide text-white text-gray-800 lg:text-1xl lg:text-2xl">
                 We are Looking for New Talents
               </h1>
-              <p className="mt-4 text-gray-300 text-gray-600">
+              <p className="mt-4 text-gray-600">
                 If you sing good song, apply for an upcoming auditions conducted by Big Art Team. This forum will give you an opportunity in the singing area. This audition process is started by Filling an Online Form , Send Your Detail and short Audio Clip. We will select 1000 Newly Talented singers for auditions. More Information will Provided soon.
               </p>
 
-              <p className="mt-4 text-gray-300 text-gray-600"> For Any Enquiry Feel free to drop us a message</p>
+              <p className="mt-4 text-gray-600"> For Any Enquiry Feel free to drop us a message</p>
               <div className="mt-6">
                 <Link href="/audition">
                   <a
@@ -95,6 +95,82 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* hero end */}
+           {/* pricing */}
+           <div id="app" className="bg-gray-900 p-12">
+  <div className="max-w-lg mx-auto">
+    <h2 className="text-2xl md:text-5xl font-semibold text-center text-gray-100">
+      Final Prizes
+    </h2>
+    <h3 className="text-xl mt-2 text-center text-gray-500">
+    We Will Select Three Top Singers
+          </h3>
+          <p className="mt-1 text-gray-300 text-center">
+       Follow the Process , Fill Audition Form and Send Your Voice to us. We will select best voices for Auditions and will select Top Three Singers Among them. Wish you Good Luck , Go Ahead.
+      </p>
+  </div>
+  <div className="my-8 mt-12 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+    <div className="max-w-xs rounded-md border-2 border-solid border-indigo-600 border-opacity-25 hover:border-opacity-100 px-8 pt-8 pb-4">
+      <h3 className="text-2xl font-semibold text-gray-100">1st Prize</h3>
+     
+      <div className="flex items-center mt-2 mb-4">
+        <h4 className="text-2xl font-semibold text-gray-100 mr-4">100,000/ +  Audio + Video </h4>
+
+      </div>
+      <Link href="/audition">
+      <button
+        type="button"
+        className="my-2 w-full font-semibold text-indigo-600 hover:text-gray-100 hover:bg-indigo-700 rounded border border-solid border-indigo-600 border-opacity-25 py-3"
+      >
+        Audition Form
+              </button>
+              </Link>
+      {/* <button
+        type="button"
+        className="w-full font-semibold text-gray-100 py-3 rounded border border-solid border-transparent hover:border-indigo-700"
+      >
+        Learn More
+      </button> */}
+    </div>
+    <div className="max-w-xs rounded-md border-2 border-solid border-indigo-600 px-8 pt-8 pb-4">
+      <h3 className="text-2xl font-semibold text-gray-100">2nd Prize</h3>
+     
+      <div className="flex items-center mt-2 mb-4">
+        <h4 className="text-3xl font-semibold text-gray-100 mr-4">75,000/ +  Audio  </h4>
+        {/* <h4 className="text-xs text-gray-500">
+        <br />         
+        </h4> */}
+      </div>
+      <Link href="/audition">
+      <button
+        type="button"
+        className="my-2 w-full font-semibold text-indigo-600 hover:text-gray-100 hover:bg-indigo-700 rounded border border-solid border-indigo-600 border-opacity-25 py-3"
+      >
+        Audition Form
+              </button>
+              </Link>
+     
+    </div>
+    <div className="max-w-xs rounded-md border-2 border-solid border-indigo-600 border-opacity-25 hover:border-opacity-100 px-8 pt-8 pb-4">
+      <h3 className="text-2xl font-semibold text-gray-100">3rd Prize</h3>
+     
+      <div className="flex items-center mt-2 mb-4">
+        <h4 className="text-3xl font-semibold text-gray-100 mr-4">50,000/ +  Audio </h4>
+
+            </div>
+            <Link href="/audition">
+      <button
+        type="button"
+        className="my-2 w-full font-semibold text-indigo-600 hover:text-gray-100 hover:bg-indigo-700 rounded border border-solid border-indigo-600 border-opacity-25 py-3"
+      >
+        Audition Form
+              </button>
+              </Link>
+     
+    </div>
+  </div>
+</div>
 
       {/* about  */}
       <div className='my-10 px-5 lg:px-50 xl:px-60'>
