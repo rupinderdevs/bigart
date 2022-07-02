@@ -60,7 +60,7 @@ export default function Home() {
         <div className="container px-6 py-4 mx-auto lg:flex lg:h-128 lg:py-16 ">
           <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
             <div className="max-w-lg">
-              <h2 className="tracking-widest text-xl tracking-wide text-white text-indigo-800 font-bold lg:text-3xl lg:text-4xl mb-2">
+              <h2 className="tracking-widest text-3xl tracking-wide text-white text-indigo-800 font-bold lg:text-3xl lg:text-4xl mb-2">
                 Hello Talent
               </h2>
               <h1 className="text-xl tracking-wide text-white text-gray-800 lg:text-1xl lg:text-2xl">
@@ -103,7 +103,7 @@ export default function Home() {
       {/* pricing */}
       <div id="app" className="bg-gray-900 p-12">
         <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl md:text-5xl font-semibold text-center text-gray-100 border-b-4 border-indigo-500 leading-10 py-4">
+          <h2 className="text-3xl md:text-5xl font-semibold text-center text-gray-100 border-b-4 border-indigo-500 leading-10 py-2">
             Final Prizes
           </h2>
           {/* <h3 className="text-xl mt-2 text-center text-gray-500">
@@ -170,7 +170,7 @@ export default function Home() {
 
       
       {/*  bg*/}
-      <div className="z-30 relative items-center justify-center w-full h-full overflow-auto">
+      <div className="py-4 z-30 relative items-center justify-center w-full h-full overflow-auto">
   <div
     className="inset-0 h-screen bg-cover bg-center bg-[url('../images/bg.jpg')]"
   ></div>
@@ -180,21 +180,21 @@ export default function Home() {
       className="shadow-2xl rounded-lg w-4/5 h-96 bg-cover bg-center bg-[url('../images/bg.jpg')]"
     >
       <div className="grid grid-cols-12 gap-1">
-        <div className="relative my-6 px-8 col-span-12 sm:col-span-12 md:col-span-7 lg:col-span-7 xxl:col-span-7">
-          <div className="border-l-4 border-gray-400 py-20 px-5 mx-2 absolute left-0">
-            <p className="italic text-white text-xl md:text-4xl lg:text-6xl uppercase text-center  font-semibold ">
-              Big Art Findind Talent
+        <div className="relative my-6 px-8 col-span-12 sm:col-span-12 sm:mb-12 md:col-span-7 lg:col-span-7 xxl:col-span-7">
+          <div className="border-l-4 border-gray-400 md:py-20 py-5 px-5 mx-2 absolute left-0">
+            <p className="italic text-white text-xl md:text-4xl lg:text-6xl uppercase text-center font-semibold">
+              Big Art Finding Talent
             </p>
           </div>
           {/* <div className="text-gray-400 font-semibold text-xl mb-4"></div> */}
           <div className="absolute border-gray-400 border-t-4 bottom-0 py-1 px-4 w-4/5" />
         </div>
         <div className="col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-5 xxl:col-span-5">
-          <div className="relative bg-indigo-900 h-full md:h-96 w-full bg-opacity-50 rounded-tr-lg rounded-br-lg">
+          <div className="relative bg-indigo-900 h-full md:h-96 w-full bg-opacity-40 rounded-tr-lg rounded-br-lg">
             <div className="p-8">
-              <p className="text-white text-xs md:text-sm lg:text-xl mb-4">
+              <p className="text-white text-lg mb-4">
                       Big art has brought you a golden opportunity. We have come up with a new concept in 2022 - 23 this year.</p>
-                      <p className="text-white text-xs md:text-sm lg:text-xl mb-4">You Can Give This Singing Audition Through Your Phone Sitting At Home. If You Think You Are A Good Singer. And You Can Move Forward In The Field Of Singing. So You Can Give This Audition. The Process Of Auditioning Online Is Very Simple.
+                      <p className="text-white text-lg mb-6">You Can Give This Singing Audition Through Your Phone Sitting At Home. If You Think You Are A Good Singer. And You Can Move Forward In The Field Of Singing. So You Can Give This Audition. The Process Of Auditioning Online Is Very Simple.
               </p>
               <div className="bottom-0 absolute p-2 right-0">
                       <Link href="/audition">

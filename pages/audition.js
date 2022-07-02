@@ -135,14 +135,14 @@ export default function Audition () {
   if (paymentSuccess == undefined) {
     return (
       <>
-        <div className="py-20 space-y-10 px-10 lg:px-80 text-gray-100 text-xl bg-[url('../images/bg.jpg')]">
-          <h2 className='text-4xl font-semibold  border-b-4 border-indigo-500 text-center py-4'>Audition Form</h2>
-          <p>
+        <div className="py-20 space-y-10 px-10 lg:px-80 text-gray-100 text-lg bg-[url('../images/bg.jpg')]">
+          <h2 className='text-3xl font-semibold border-b-4 border-indigo-500 text-center py-3'>Audition Form</h2>
+          <p className='text-justify md:text-center'>
             Big Art Has Brought You A Golden Opportunity. We Have Come Up With A New Concept In 2022 - 23 This Year. The Total Price List Is 2.25 Lakhs. This Session Will Be Completed In Three Months.</p>
-      <div className='font-bold'>
- <p> 1. The First And Second Round Will Be Conducted Online Only. </p>
- <p>2. The Final Round Will Take Place In Front Of The Judges. </p>
- <p>3. The First Three Winners In The Final Round Will Be Awarded According To The Winning List. </p>
+      <div className='font-semibold'>
+ <p className='py-1'> 1. The First And Second Round Will Be Conducted Online Only. </p>
+ <p className='py-1'>2. The Final Round Will Take Place In Front Of The Judges. </p>
+ <p className='py-1'>3. The First Three Winners In The Final Round Will Be Awarded According To The Winning List. </p>
  </div>         
 <p>Now, You Can Fill The Form, Will Be Mentioning The Details Below. </p>
         
