@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <>
-<header className="text-gray-700 body-font border-b border-gray-200">
+<header className="bg-gray-900 text-gray-700 body-font border-b border-gray-200">
   <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <Link href="/">
             <a
@@ -16,7 +16,7 @@ export default function Navbar() {
       target="_blank"
     >
      
-              <span className="ml-3 text-3xl font-bold">BIG ART</span>
+              <span className="text-gray-100 ml-3 mr-4 text-3xl font-bold tracking-wider">BIG ART</span>
               <Image className='w-32'
                 src={mike}   
               alt={mike}  

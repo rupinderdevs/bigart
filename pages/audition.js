@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
@@ -134,8 +135,8 @@ export default function Audition () {
   if (paymentSuccess == undefined) {
     return (
       <>
-        <div className='py-20 space-y-10 px-10 lg:px-80 bg-gray-100'>
-          <h2 className='text-4xl font-semibold'>Audition Form</h2>
+        <div className="py-20 space-y-10 px-10 lg:px-80 text-gray-100 text-xl bg-[url('../images/bg.jpg')]">
+          <h2 className='text-4xl font-semibold  border-b-4 border-indigo-500 text-center py-4'>Audition Form</h2>
           <p>
             Big Art Has Brought You A Golden Opportunity. We Have Come Up With A New Concept In 2022 - 23 This Year. The Total Price List Is 2.25 Lakhs. This Session Will Be Completed In Three Months.</p>
       <div className='font-bold'>
@@ -150,7 +151,8 @@ export default function Audition () {
             This Audition Process Is Online
           </p>
 
-          <div className='grid xl:grid-cols-2 xl:gap-6'>
+<div className='bg-gray-100 md:p-10 p-4 rounded'>
+          <div className='grid xl:grid-cols-1 xl:gap-6'>
             <div className='relative z-0 w-full mb-6 group'>
               <input
                 type='text'
@@ -185,7 +187,7 @@ export default function Audition () {
               </label>
             </div>
           </div>
-          <div className='grid xl:grid-cols-2 xl:gap-6'>
+          <div className='grid xl:grid-cols-1 xl:gap-6'>
             <div className='relative z-0 w-full mb-6 group'>
               <input
                 type='tel'
@@ -269,10 +271,10 @@ export default function Audition () {
             {!loading ? (
               <>
                 <button
-                  className='inline-block align-middle m-auto table text-white text-center bg-gray-800 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+                  className='inline-block align-middle m-auto table text-white text-center bg-indigo-500 hover:bg-indigo-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto md:px-20 px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
                   onClick={openFileDialog}
                 >
-                  Upload Video of Your Voice (Should Not More Than 1 Minute)
+                  Upload Video (Any Song by You)
                 </button>
               </>
             ) : (
@@ -320,13 +322,14 @@ export default function Audition () {
             <form action={`/api/checkout_sessions/${id}`} method='post'>
               <button
                 type='submit'
-                className='inline-block align-middle m-auto table text-white text-center bg-gray-800 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+                className='inline-block align-middle m-auto table text-white text-center bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
               >
                 Checkout Payment
               </button>
             </form>
           )}
-        </div>
+          </div>
+          </div>
       </>
     )
   } else if (paymentSuccess == 'success') {
