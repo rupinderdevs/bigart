@@ -27,7 +27,7 @@ export default function Navbar() {
     <ul className='flex mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium'>
       <li>
         <Link href="/">
-        <a className='text-dark-900 bg-gray-300 hover:bg-gray-700 hover:text-gray-100  px-3 py-2 rounded-md text-sm font-medium'
+        <a className='text-dark-900 bg-gray-300 hover:bg-gray-700 hover:text-gray-100 mx-1 px-3 py-2 rounded-md text-sm font-medium'
             aria-current='page'
           >
             Home
@@ -36,15 +36,15 @@ export default function Navbar() {
 
       </li>
       <li>
-        <Link href="/">
-          <a className='text-dark-900 bg-gray-300 hover:bg-gray-700 hover:text-gray-100  px-3 py-2 rounded-md text-sm font-medium'
+        <Link href="/audition">
+          <a className='text-dark-900 bg-gray-300 hover:bg-gray-700 hover:text-gray-100 mx-1 px-3 py-2 rounded-md text-sm font-medium'
           > Audition Form
           </a>
         </Link>
       </li>
       <li>
         <Link href="/contact">
-        <a className='text-dark-900 bg-gray-300 hover:bg-gray-700 hover:text-gray-100  px-3 py-2 rounded-md text-sm font-medium'
+        <a className='text-dark-900 bg-gray-300 hover:bg-gray-700 hover:text-gray-100 mx-1  px-3 py-2 rounded-md text-sm font-medium'
           > Contact
           </a>
         </Link>

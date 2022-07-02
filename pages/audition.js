@@ -90,7 +90,7 @@ export default function Audition () {
         setpaymentSuccess('fail')
       }
     }
-  }, [success, canceled])
+  }, [success, canceled, paymentSuccess])
 
   const setFromStorage = () => {
     if (typeof window !== 'undefined') {
@@ -137,14 +137,17 @@ export default function Audition () {
         <div className='py-20 space-y-10 px-10 lg:px-80 bg-gray-100'>
           <h2 className='text-4xl font-semibold'>Audition Form</h2>
           <p>
-            You can give this singing audition through your phone sitting at
-            home. Friends, if you really think that you are a good singer and
-            you can go ahead then only give this audition otherwise you can
-            leave it.
-          </p>
+            Big Art Has Brought You A Golden Opportunity. We Have Come Up With A New Concept In 2022 - 23 This Year. The Total Price List Is 2.25 Lakhs. This Session Will Be Completed In Three Months.</p>
+      <div className='font-bold'>
+ <p> 1. The First And Second Round Will Be Conducted Online Only. </p>
+ <p>2. The Final Round Will Take Place In Front Of The Judges. </p>
+ <p>3. The First Three Winners In The Final Round Will Be Awarded According To The Winning List. </p>
+ </div>         
+<p>Now, You Can Fill The Form, Will Be Mentioning The Details Below. </p>
+        
           <p>
-            If you think you are a good singer then you can give this audition.
-            This audition process is online
+          If You Think You Are A Good Singer Then You Can Give This Audition.
+            This Audition Process Is Online
           </p>
 
           <div className='grid xl:grid-cols-2 xl:gap-6'>
@@ -178,21 +181,21 @@ export default function Audition () {
                 htmlFor='floating_email'
                 className='peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
               >
-                Email address
+                Email address 
               </label>
             </div>
           </div>
           <div className='grid xl:grid-cols-2 xl:gap-6'>
             <div className='relative z-0 w-full mb-6 group'>
               <input
-                type='number'
+                type='tel'
                 pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
                 name='floating_phone'
                 id='floating_phone'
                 className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
                 placeholder=' '
                 required
-                max='10'
+                maxLength = '10'
                 onChange={e => setphoneNumber(e.target.value)}
               />
               <label
