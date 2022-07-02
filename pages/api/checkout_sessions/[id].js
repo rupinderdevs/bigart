@@ -7,14 +7,14 @@ export default async function handler(req, res) {
 			const session = await stripe.checkout.sessions.create({
 				line_items: [
 					{
-						price: 'price_1LCLlFSBD7Ah0EoeaAdlWnUv',
+						price: process.env.PRICE_KEY,
 						quantity: 1,
 					},
 				],
 				payment_method_types: ['card'],
 				mode: 'payment',
-				success_url: `${req.headers.origin}/succes?success=true&session_id={CHECKOUT_SESSION_ID}&id=${id}`,
-				cancel_url: `${req.headers.origin}/failed?canceled=true&id=${id}`,
+				success_url: `${req.headers.origin}/confirm?success=true&session_id={CHECKOUT_SESSION_ID}&id=${id}`,
+				cancel_url: `${req.headers.origin}/confirm?canceled=true&id=${id}`,
 			});
 			res.redirect(303, session.url);
 		} catch (err) {
