@@ -203,16 +203,18 @@ export default function Audition() {
             <div className='grid xl:grid-cols-1 xl:gap-6'>
               <div className='relative z-0 w-full mb-6 group'>
               <input
-                  type='number'
+                  type='tel'
                   pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
                   name='phone'
                   id='floating_phone'
                   className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
                   placeholder=' '
                   required='Enter Number Only'
-                  maxLength='10'
+                  maxLength={10}
                   onKeyPress={isInputNumber}
-                  onChange={e => setphoneNumber(e.target.value)}
+                  onChange={e => {const limit = 10;
+                    setphoneNumber(e.target.value.slice(0, limit)) }} 
+
                 />
                 <label
                   htmlFor='floating_phone'
