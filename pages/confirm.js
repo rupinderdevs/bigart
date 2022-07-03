@@ -91,11 +91,15 @@ export default function Succes () {
             </div>
             <div className='ml-3'>
               <h2 className='font-semibold text-gray-800'>
-                Payment Done Successfully{' '}
+              Congratulations Payment Done Successfully{' '}
+              </h2>
+              <h2 className='font-semibold text-gray-800'>
+              Stay Tuned{' '}
               </h2>
               <p className='mt-2 text-sm text-gray-600 leading-relaxed'>
                 <a href='tel:9779967745'> Contact Us</a> For More Information
               </p>
+
             </div>
           </div>
         </div>
