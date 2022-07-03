@@ -12,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.min.css'
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 export default function Audition() {
 
+
+  
   const [loading, setLoading] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -26,6 +28,16 @@ export default function Audition() {
 
   function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+  const isInputNumber = (e) => {
+    let ch = String.fromCharCode(e.which);
+    if (!(/[0-9]/.test(ch))) {
+      e.preventDefault();
+    }
+  } 
+
+  const validation = () => {
+
   }
 
   const id = String(randomInteger(10000, 99999))
@@ -108,7 +120,7 @@ export default function Audition() {
     setdataSave(false)
   }
 
-  // const submitForm = async e => {
+ // const submitForm = async e => {
   //   e.preventDefault()
   //   console.log({ name, email, phoneNumber, gender, age, videoUrl, id })
 
@@ -175,9 +187,9 @@ export default function Audition() {
                 <input
                   type='email'
                   name='floating_email'
-                  className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
+                  className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'                  
                   placeholder=' '
-                  required=''
+                  required='Email is required'
                   onChange={e => setEmail(e.target.value)}
                 />
                 <label
@@ -190,15 +202,16 @@ export default function Audition() {
             </div>
             <div className='grid xl:grid-cols-1 xl:gap-6'>
               <div className='relative z-0 w-full mb-6 group'>
-                <input
-                  type='tel'
+              <input
+                  type='number'
                   pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
                   name='phone'
                   id='floating_phone'
                   className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
                   placeholder=' '
-                  required
+                  required='Enter Number Only'
                   maxLength='10'
+                  onKeyPress={isInputNumber}
                   onChange={e => setphoneNumber(e.target.value)}
                 />
                 <label
@@ -238,6 +251,7 @@ export default function Audition() {
                   <option defaultValue={'gender'}>Choose Gender</option>
                   <option value={'male'}>Male</option>
                   <option value={'female'}>Female</option>
+                  <option value={'transgender'}>TransGender</option>
                 </select>
                 <label
                   htmlFor='floating_company'
@@ -256,6 +270,7 @@ export default function Audition() {
                   required
                   min='16'
                   max='30'
+                  onKeyPress={isInputNumber}
                   onChange={e => setAge(e.target.value)}
                 />
                 <label
@@ -272,7 +287,7 @@ export default function Audition() {
               {!loading ? (
                 <>
                   <button
-
+                    disabled={!name || !email || !age || !address || !phoneNumber}
                     className='inline-block align-middle m-auto table text-white text-center bg-indigo-800 hover:bg-indigo-850 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto md:px-20 px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
                     onClick={openFileDialog}
                   >

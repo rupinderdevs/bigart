@@ -91,7 +91,6 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center w-full mt-2 lg:h-96 lg:w-1/2">
             <Image
-
               src={hero}
               alt="Picture of the author"
             />
