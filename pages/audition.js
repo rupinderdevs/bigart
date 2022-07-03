@@ -10,8 +10,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
-export default function Audition() {
-
+export default function Audition () {
   const [loading, setLoading] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -24,7 +23,7 @@ export default function Audition() {
   const [dataSave, setdataSave] = useState(true)
   const [paymentSuccess, setpaymentSuccess] = useState(undefined)
 
-  function randomInteger(min, max) {
+  function randomInteger (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
@@ -81,7 +80,6 @@ export default function Audition() {
   //       }
   //       submitForm()
 
-
   //     }
 
   //     if (canceled) {
@@ -137,15 +135,30 @@ export default function Audition() {
     return (
       <>
         <div className="py-20 space-y-10 px-10 lg:px-80 text-gray-100 text-lg bg-[url('../images/bg.jpg')]">
-          <h2 className='text-3xl font-semibold border-b-4 border-indigo-500 text-center py-3'>Audition Form</h2>
+          <h2 className='text-3xl font-semibold border-b-4 border-indigo-500 text-center py-3'>
+            Audition Form
+          </h2>
           <p className='text-justify md:text-center'>
-            Big Art Has Brought You A Golden Opportunity. We Have Come Up With A New Concept In 2022 - 23 This Year. The Total Price List Is 2.25 Lakhs. This Session Will Be Completed In Three Months.</p>
+            Big Art Has Brought You A Golden Opportunity. We Have Come Up With A
+            New Concept In 2022 - 23 This Year. The Total Price List Is 2.25
+            Lakhs. This Session Will Be Completed In Three Months.
+          </p>
           <div className='font-semibold'>
-            <p className='py-1'> 1. The First And Second Round Will Be Conducted Online Only. </p>
-            <p className='py-1'>2. The Final Round Will Take Place In Front Of The Judges. </p>
-            <p className='py-1'>3. The First Three Winners In The Final Round Will Be Awarded According To The Winning List. </p>
+            <p className='py-1'>
+              {' '}
+              1. The First And Second Round Will Be Conducted Online Only.{' '}
+            </p>
+            <p className='py-1'>
+              2. The Final Round Will Take Place In Front Of The Judges.{' '}
+            </p>
+            <p className='py-1'>
+              3. The First Three Winners In The Final Round Will Be Awarded
+              According To The Winning List.{' '}
+            </p>
           </div>
-          <p>Now, You Can Fill The Form, Will Be Mentioning The Details Below. </p>
+          <p>
+            Now, You Can Fill The Form, Will Be Mentioning The Details Below.{' '}
+          </p>
 
           <p>
             If You Think You Are A Good Singer Then You Can Give This Audition.
@@ -272,7 +285,6 @@ export default function Audition() {
               {!loading ? (
                 <>
                   <button
-
                     className='inline-block align-middle m-auto table text-white text-center bg-indigo-800 hover:bg-indigo-850 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto md:px-20 px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
                     onClick={openFileDialog}
                   >
@@ -282,10 +294,11 @@ export default function Audition() {
               ) : (
                 <div className='flex justify-center'>
                   <div
-                    className={`flex p-4 mb-4 text-sm text-yellow-700 ${loading == 'done'
+                    className={`flex p-4 mb-4 text-sm text-yellow-700 ${
+                      loading == 'done'
                         ? 'text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800'
                         : 'bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800'
-                      }  w-1/2`}
+                    }  w-1/2`}
                     role='alert'
                   >
                     <svg
@@ -304,7 +317,7 @@ export default function Audition() {
                       <span className='font-medium'>Video Upload Status </span>
                       {loading
                         ? loading == 'done'
-                          ? 'Video upload done'                        
+                          ? 'Video upload done'
                           : 'Uploading a video '
                         : 'Please upload Your Voice video'}
                     </div>
