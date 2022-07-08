@@ -13,7 +13,7 @@ export default function Navbar() {
           <Link href="/">
             <a
       className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
-      target="_blank"
+     
     >
      
               <span className="text-gray-100 ml-3 mr-4 text-3xl font-bold tracking-wider">BIG ART</span>

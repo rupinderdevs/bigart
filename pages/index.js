@@ -169,7 +169,7 @@ export default function Home() {
 
       
       {/*  bg*/}
-      <div className="py-4 z-30 relative items-center justify-center w-full h-full overflow-auto">
+      <div className="z-30 relative items-center justify-center w-full h-full overflow-auto">
   <div
     className="inset-0 h-screen bg-cover bg-center bg-[url('../images/bg.jpg')]"
   ></div>
