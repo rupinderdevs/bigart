@@ -1,9 +1,10 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 import { useRouter } from 'next/router'
 import { useS3Upload } from 'next-s3-upload'
 import 'react-toastify/dist/ReactToastify.min.css'
+import { useDispatch, useSelector } from "react-redux";
 
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 export default function Audition () {
@@ -18,6 +19,7 @@ export default function Audition () {
   let { FileInput, openFileDialog, uploadToS3 } = useS3Upload()
   const [dataSave, setdataSave] = useState(true)
   const [paymentSuccess, setpaymentSuccess] = useState(undefined)
+
 
   function randomInteger (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -49,17 +51,21 @@ export default function Audition () {
   const { success, canceled } = router.query
 
   const setFromStorage = () => {
-    if (typeof window !== 'undefined') {
-      window.localStorage.setItem('name', name)
-      window.localStorage.setItem('email', email)
-      window.localStorage.setItem('phoneNumber', phoneNumber)
-      window.localStorage.setItem('gender', gender)
-      window.localStorage.setItem('age', age)
-      window.localStorage.setItem('videoUrl', videoUrl)
-      window.localStorage.setItem('address', address)
-      window.localStorage.setItem('payment', 'Not Done')
-    }
-    setdataSave(false)
+    router.push({
+      pathname: '/checkout',
+      query: { name , email , phoneNumber , videoUrl , age ,address ,gender }
+    })
+    // if (typeof window !== 'undefined') {
+    //   window.localStorage.setItem('name', name)
+    //   window.localStorage.setItem('email', email)
+    //   window.localStorage.setItem('phoneNumber', phoneNumber)
+    //   window.localStorage.setItem('gender', gender)
+    //   window.localStorage.setItem('age', age)
+    //   window.localStorage.setItem('videoUrl', videoUrl)
+    //   window.localStorage.setItem('address', address)
+    //   window.localStorage.setItem('payment', 'Not Done')
+    // }
+    // setdataSave(false)
   }
 
   if (paymentSuccess == undefined) {
@@ -209,7 +215,7 @@ export default function Audition () {
                   required
                   min='16'
                   max='30'
-                  onKeyPress={isAgeNumber(event)}
+                 // onKeyPress={isAgeNumber(event)}
                   onChange={e => setAge(e.target.value)}
                 />
                 <label
@@ -272,14 +278,14 @@ export default function Audition () {
             </div>
             {dataSave ? (
               <button
-                disabled={
-                  !name ||
-                  !email ||
-                  !age ||
-                  !address ||
-                  !phoneNumber ||
-                  !videoUrl
-                }
+                // disabled={
+                //   !name ||
+                //   !email ||
+                //   !age ||
+                //   !address ||
+                //   !phoneNumber ||
+                //   !videoUrl
+                // }
                 onClick={setFromStorage}
                 className='inline-block align-middle m-auto table text-white text-center bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800 disabled:cursor-not-allowed disabled:bg-gray-500'
                 title='Kindly Fill The Above Fields'

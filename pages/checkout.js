@@ -1,28 +1,36 @@
 import React from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
-import { data } from 'autoprefixer'
+import { useRouter } from 'next/router'
 
 export default function Checkout () {
+  const router = useRouter()
+
+
+  let oid = Math.floor(Math.random() + Date.now())
+  let data = Object.entries(router.query)
   const onScriptLoad = async () => {
-    let amount = '10';
-    let email ='test@gmaol.com'
-    let oid = Math.floor(Math.random()+ Date.now());
+    let amount = '1'
+    let email = router.query.email
     const data = {
-      amount , oid , email
-    };
+      amount,
+      oid,
+      email
+    }
 
     //get transaction token
-    let getToken = await fetch(`${process.env.NEXT_PUBLIC_WEBSITE_HOST}/api/pretransaction`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
+    let getToken = await fetch(
+      `${process.env.NEXT_PUBLIC_WEBSITE_HOST}/api/pretransaction`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+    )
     let txntokenRes = await getToken.json()
-    let txntoken = txntokenRes.txntoken
-   
+    let txntoken = txntokenRes.txnToken
 
     var config = {
       root: '',
@@ -34,6 +42,9 @@ export default function Checkout () {
         amount: amount /* update amount */
       },
       handler: {
+        transactionStatus:function(data){
+          console.log("payment status ", data);  
+        } ,
         notifyMerchant: function (eventName, data) {
           console.log('notifyMerchant handler function called')
           console.log('eventName => ', eventName)
@@ -45,7 +56,7 @@ export default function Checkout () {
     // initialze configuration using init method
     window.Paytm.CheckoutJS.init(config)
       .then(function onSuccess () {
-        console.log("init")
+        console.log('init')
         // after successfully updating configuration, invoke JS Checkout
         window.Paytm.CheckoutJS.invoke()
       })
@@ -67,7 +78,7 @@ export default function Checkout () {
         src={`${process.env.NEXT_PUBLIC_PAYTM_HOST}/merchantpgpui/checkoutjs/merchants/${process.env.NEXT_PUBLIC_PAYTM_MID}.js`}
       />
 
-      <div className='p-10'>
+      <div className='py-10 px-48'>
         <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
           <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
             <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
@@ -81,15 +92,20 @@ export default function Checkout () {
               </tr>
             </thead>
             <tbody>
-              <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-                <th
-                  scope='row'
-                  className='px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap'
+              {data.map((value, key) => (
+                <tr
+                  key={key}
+                  className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'
                 >
-                  Apple MacBook Pro 17
-                </th>
-                <td className='px-6 py-4'>Sliver</td>
-              </tr>
+                  <th
+                    scope='row'
+                    className='px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap'
+                  >
+                    {value[0]}
+                  </th>
+                  <td className='px-6 py-4'>{value[1]}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
