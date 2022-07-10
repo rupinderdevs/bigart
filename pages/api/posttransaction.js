@@ -1,6 +1,5 @@
+export default function handler (req, res) {
+  let status = req.body.STATUS
 
-export default function handler(req, res) {
-    res.status(200).json({ body:req.body })
-   
-  }
-  
+  res.redirect(307, `/confirm?success=${status}`)
+}

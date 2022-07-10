@@ -20,7 +20,10 @@
     "react-toastify": "^9.0.4",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
-    "stripe": "^9.9.0"
+    "stripe": "^9.9.0",
+    "next-redux-wrapper": "^7.0.5",
+    "react-redux": "^7.2.6",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",

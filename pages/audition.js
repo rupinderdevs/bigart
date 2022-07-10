@@ -1,12 +1,10 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
-import { loadStripe } from '@stripe/stripe-js'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useS3Upload } from 'next-s3-upload'
 import 'react-toastify/dist/ReactToastify.min.css'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from 'react-redux'
 
-loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 export default function Audition () {
   const [loading, setLoading] = useState('')
   const [name, setName] = useState('')
@@ -20,6 +18,7 @@ export default function Audition () {
   const [dataSave, setdataSave] = useState(true)
   const [paymentSuccess, setpaymentSuccess] = useState(undefined)
 
+  const dispatch = useDispatch()
 
   function randomInteger (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -36,8 +35,6 @@ export default function Audition () {
     }
   }
 
-  const validation = () => {}
-
   const id = String(randomInteger(10000, 99999))
 
   let handleFileChange = async file => {
@@ -48,24 +45,30 @@ export default function Audition () {
     console.log(url)
   }
   const router = useRouter()
-  const { success, canceled } = router.query
-
   const setFromStorage = () => {
-    router.push({
-      pathname: '/checkout',
-      query: { name , email , phoneNumber , videoUrl , age ,address ,gender }
+    dispatch({
+      type: 'GET_UPDATE',
+      payload: { name, email, phoneNumber, videoUrl, age, address, gender }
     })
-    // if (typeof window !== 'undefined') {
-    //   window.localStorage.setItem('name', name)
-    //   window.localStorage.setItem('email', email)
-    //   window.localStorage.setItem('phoneNumber', phoneNumber)
-    //   window.localStorage.setItem('gender', gender)
-    //   window.localStorage.setItem('age', age)
-    //   window.localStorage.setItem('videoUrl', videoUrl)
-    //   window.localStorage.setItem('address', address)
-    //   window.localStorage.setItem('payment', 'Not Done')
-    // }
-    // setdataSave(false)
+    dispatch({
+      type: 'GET_UPDATE_PAYMENT',
+      payload: { payment: false }
+    })
+
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('name', name)
+      window.localStorage.setItem('email', email)
+      window.localStorage.setItem('phoneNumber', phoneNumber)
+      window.localStorage.setItem('gender', gender)
+      window.localStorage.setItem('age', age)
+      window.localStorage.setItem('videoUrl', videoUrl)
+      window.localStorage.setItem('address', address)
+      window.localStorage.setItem('payment', 'Not Done')
+      window.localStorage.setItem('saveData', 'Not done')
+    }
+    router.push({
+      pathname: '/checkout'
+    })
   }
 
   if (paymentSuccess == undefined) {
@@ -215,7 +218,7 @@ export default function Audition () {
                   required
                   min='16'
                   max='30'
-                 // onKeyPress={isAgeNumber(event)}
+                  // onKeyPress={isAgeNumber(event)}
                   onChange={e => setAge(e.target.value)}
                 />
                 <label
@@ -276,55 +279,20 @@ export default function Audition () {
                 </div>
               )}
             </div>
-            {dataSave ? (
-              <button
-                // disabled={
-                //   !name ||
-                //   !email ||
-                //   !age ||
-                //   !address ||
-                //   !phoneNumber ||
-                //   !videoUrl
-                // }
-                onClick={setFromStorage}
-                className='inline-block align-middle m-auto table text-white text-center bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800 disabled:cursor-not-allowed disabled:bg-gray-500'
-                title='Kindly Fill The Above Fields'
-              >
-                Submit
-              </button>
-            ) : (
-              <form action={`/api/checkout_sessions/${id}`} method='post'>
-                <button
-                  type='submit'
-                  className='inline-block align-middle m-auto table text-white text-center bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800'
-                >
-                  Checkout Payment
-                </button>
-              </form>
-            )}
+
+            <button
+              disabled={
+                !name || !email || !age || !address || !phoneNumber || !videoUrl
+              }
+              onClick={setFromStorage}
+              className='inline-block align-middle m-auto table text-white text-center bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-20 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800 disabled:cursor-not-allowed disabled:bg-gray-500'
+              title='Kindly Fill The Above Fields'
+            >
+              Submit
+            </button>
           </div>
         </div>
       </>
-    )
-  } else if (paymentSuccess == 'success') {
-    return (
-      <div
-        className='p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800'
-        role='alert'
-      >
-        <span className='font-medium'>Success alert!</span> Change a few things
-        up and try submitting again.
-      </div>
-    )
-  } else {
-    return (
-      <div
-        className='p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800'
-        role='alert'
-      >
-        <span className='font-medium'>Danger alert!</span> Change a few things
-        up and try submitting again.
-      </div>
     )
   }
 }

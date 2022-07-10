@@ -3,10 +3,9 @@ import Navbar from '../components/Navbar'
 import '../styles/globals.css'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
-import { useStore } from '../store'
+import { wrapper, store } from "../store/store";
 
 function MyApp ({ Component, pageProps }) {
-  const store = useStore(pageProps.initialReduxState)
   return (
     <>
       <Provider store={store}>
@@ -30,4 +29,4 @@ function MyApp ({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp)

@@ -1,17 +1,24 @@
 import React from 'react'
+import { useEffect } from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 
 export default function Checkout () {
   const router = useRouter()
+  const sampleListData = useSelector(state => state.sampleData)
+  const patmentListData = useSelector(state => state.paymentData)
 
+  const { sample } = sampleListData
+  const { payment } = patmentListData
+  console.log('payment data', payment)
 
   let oid = Math.floor(Math.random() + Date.now())
-  let data = Object.entries(router.query)
+  let data = Object.entries(sample)
   const onScriptLoad = async () => {
     let amount = '1'
-    let email = router.query.email
+    let email = sample.email
     const data = {
       amount,
       oid,
@@ -42,9 +49,9 @@ export default function Checkout () {
         amount: amount /* update amount */
       },
       handler: {
-        transactionStatus:function(data){
-          console.log("payment status ", data);  
-        } ,
+        transactionStatus: function (data) {
+          console.log('payment status ', data)
+        },
         notifyMerchant: function (eventName, data) {
           console.log('notifyMerchant handler function called')
           console.log('eventName => ', eventName)
@@ -64,6 +71,11 @@ export default function Checkout () {
         console.log('error => ', error)
       })
   }
+  useEffect(() => {
+    if (!data.length) {
+      router.push('/audition')
+    }
+  }, [data, router])
   return (
     <>
       <Head>

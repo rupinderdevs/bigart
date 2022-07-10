@@ -4,19 +4,17 @@ import { useRouter } from 'next/router'
 
 export default function Succes () {
   const router = useRouter()
-  const { success, canceled } = router.query
+
+  const { success } = router.query
   const [paymentSuccess, setpaymentSuccess] = useState(undefined)
 
   useEffect(() => {
-    if (
-      success !== undefined ||
-      canceled !== undefined ||
-      paymentSuccess !== undefined
-    ) {
-      if (success) {
+    if (success !== undefined || paymentSuccess !== undefined) {
+      if (success == 'TXN_SUCCESS') {
         if (typeof window !== 'undefined') {
           window.localStorage.setItem('payment', 'Done')
         }
+
         const submitForm = async () => {
           try {
             const res = await fetch('/api/submit-form', {
@@ -35,24 +33,29 @@ export default function Succes () {
             // Success if status code is 201
             if (res.status === 201) {
               setpaymentSuccess('success')
+              window.localStorage.setItem('saveData', 'done')
             } else {
-              setpaymentSuccess('fail')
+              setpaymentSuccess('success')
             }
           } catch (error) {
             console.log('error')
           }
         }
-        submitForm()
+        if (window.localStorage.getItem('saveData') == 'done') {
+          setpaymentSuccess('success')
+        } else {
+          submitForm()
+        }
       }
 
-      if (canceled) {
+      if (success == 'TXN_FAILURE') {
         if (typeof window !== 'undefined') {
           window.localStorage.setItem('payment', 'Fail')
         }
         setpaymentSuccess('fail')
       }
     }
-  }, [success, canceled, paymentSuccess, setpaymentSuccess])
+  }, [success, paymentSuccess, setpaymentSuccess])
 
   if (paymentSuccess == undefined) {
     return (
@@ -91,15 +94,12 @@ export default function Succes () {
             </div>
             <div className='ml-3'>
               <h2 className='font-semibold text-gray-800'>
-              Congratulations Payment Done Successfully{' '}
+                Congratulations Payment Done Successfully{' '}
               </h2>
-              <h2 className='font-semibold text-gray-800'>
-              Stay Tuned{' '}
-              </h2>
+              <h2 className='font-semibold text-gray-800'>Stay Tuned </h2>
               <p className='mt-2 text-sm text-gray-600 leading-relaxed'>
                 <a href='tel:9779967745'> Contact Us</a> For More Information
               </p>
-
             </div>
           </div>
         </div>
