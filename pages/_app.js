@@ -4,6 +4,7 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
 import { wrapper, store } from "../store/store";
+import Coming from '../components/Coming'
 
 function MyApp ({ Component, pageProps }) {
   return (
@@ -18,11 +19,12 @@ function MyApp ({ Component, pageProps }) {
           />
         </Head>
         <div>
-          <Navbar />
+          {/* <Navbar /> */}
+        
           <div>
             <Component {...pageProps} />
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Provider>
     </>

@@ -41,6 +41,7 @@ export default async function handler (req, res) {
         var options = {
           /* for Staging */
           hostname: 'securegw-stage.paytm.in',
+          // i will  be commented after production
 
           /* for Production */
           // hostname: 'securegw.paytm.in',

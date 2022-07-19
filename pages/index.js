@@ -5,7 +5,7 @@ import rappers from '../images/rappers.png';
 import bg from '../images/bg.jpg';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
-
+import mike from '../images/mike.png';
 
 export default function Home() {
 
@@ -56,7 +56,54 @@ export default function Home() {
   };
   return (
     <>
-      <div className="bg-gray-200 ">
+      {/* coming soon */}
+
+      <div className="z-30 relative items-center justify-center w-full h-full overflow-auto">
+        <div
+          className="inset-0 h-screen bg-cover bg-center bg-[url('../images/bg.jpg')]"
+        ></div>
+        <div className="absolute inset-0 z-20 flex items-center justify-center h-screen w-full bg-gray-900 bg-opacity-75" />
+        <div className="absolute inset-0  z-30  flex flex-col items-center justify-center">
+          <div
+            className="shadow-2xl rounded-lg w-4/5 h-96 bg-cover bg-center bg-[url('../images/bg.jpg')]"
+          >
+            <div className="grid grid-cols-12 gap-1">
+              <div className="relative my-6 px-8 col-span-12 sm:col-span-12 sm:mb-12 md:col-span-7 lg:col-span-7 xxl:col-span-7">
+                <div className="border-l-4 border-gray-400 md:py-20 py-5 px-5 mx-2 absolute left-0">
+                  <p className="italic text-white text-xl md:text-4xl lg:text-6xl uppercase text-center font-semibold mb-6">
+                    Big Art <Image className='w-32'
+                      src={mike}
+                      alt={mike}
+                    /><br></br>
+
+
+                  </p>
+                  <p className="text-white text-xl md:text-3xl lg:text-6xl uppercase text-center font-semibold "> Coming Soon</p>
+                </div>
+                {/* <div className="text-gray-400 font-semibold text-xl mb-4"></div> */}
+                <div className="absolute border-gray-400 border-t-4 bottom-0 py-1 px-4 w-4/5" />
+              </div>
+              <div className="col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-5 xxl:col-span-5">
+                <div className="relative bg-indigo-900 h-full md:h-96 w-full bg-opacity-40 rounded-tr-lg rounded-br-lg">
+                  <div className="p-8">
+                    <p className="text-white text-lg mb-4">
+                      Big art has brought you a golden opportunity. We are coming up with a new concept in 2022 - 23 this year.</p>
+                    <p className="text-white text-lg mb-6">You Can Give This Singing Audition Through Your Phone Sitting At Home. If You Think You Are A Good Singer. And You Can Move Forward In The Field Of Singing. So You Can Give This Audition. The Process Of Auditioning Online Is Very Simple.
+                    </p>
+                  <h3 className="text-white text-4xl mb-6">Stay TUNED</h3>
+                    <div className="bottom-0 absolute p-2 right-0">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* end */}
+
+      {/* <div className="bg-gray-200 ">
         <div className="container px-6 py-4 mx-auto lg:flex lg:h-128 lg:py-16 ">
           <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
             <div className="max-w-lg">
@@ -96,25 +143,21 @@ export default function Home() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* hero end */}
       {/* pricing */}
-      <div id="app" className="bg-gray-900 p-12">
+      {/* <div id="app" className="bg-gray-900 p-12">
         <div className="max-w-lg mx-auto">
           <h2 className="text-3xl md:text-5xl font-semibold text-center text-gray-100 border-b-4 border-indigo-500 leading-10 py-2">
             Final Prizes
           </h2>
-          {/* <h3 className="text-xl mt-2 text-center text-gray-500">
-    We Will Select Three Top Singers
-          </h3> */}
+
           <ul className="list-disc mt-1 text-gray-300 text-justify font-xl">
             <li> The First And Second Round Will Be Conducted Online Only.</li>
             <li>The Final Round Will Take Place In Front Of The Judges.</li>
             <li>The First Three Winners In The Final Round Will Be Awarded According To The Winning List.</li>
           </ul>
-
-          {/* Follow the Process , Fill Audition Form and Send Your Voice to us. We will select best voices for Auditions and will select Top Three Singers Among them. Wish you Good Luck , Go Ahead. */}
 
         </div>
         <div className="my-8 mt-12 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
@@ -125,24 +168,15 @@ export default function Home() {
               <h4 className="text-2xl font-semibold text-gray-100 mr-4">100,000/ +  Audio + Video </h4>
 
             </div>
-           
-            {/* <button
-        type="button"
-        className="w-full font-semibold text-gray-100 py-3 rounded border border-solid border-transparent hover:border-indigo-700"
-      >
-        Learn More
-      </button> */}
+
           </div>
           <div className="animate-pulse hover:animate-none max-w-xs rounded-md border-2 border-solid border-indigo-600 px-9 pt-8 pb-4">
             <h3 className="text-2xl font-semibold text-gray-100">2nd Prize</h3>
 
             <div className="flex items-center mt-2 mb-4">
               <h4 className="text-3xl font-semibold text-gray-100 mr-4">75,000/ +  Audio  </h4>
-              {/* <h4 className="text-xs text-gray-500">
-        <br />         
-        </h4> */}
             </div>
-            
+
 
           </div>
           <div className="animate-pulse hover:animate-none max-w-xs rounded-md border-2 border-solid border-indigo-600 border-opacity-25 hover:border-opacity-100 px-7 pt-8 pb-4">
@@ -152,82 +186,83 @@ export default function Home() {
               <h4 className="text-3xl font-semibold text-gray-100 mr-4">50,000/ +  Audio </h4>
 
             </div>
-           
+
 
           </div>
-          
+
         </div>
         <Link href="/audition">
-              <button
-                type="button"
-                className="my-2 center-center table m-auto font-semibold text-gray-100 hover:text-gray-100 bg-indigo-500 hover:bg-indigo-900 rounded border border-solid border-indigo-600 border-opacity-25 py-3 px-8"
-              >
+          <button
+            type="button"
+            className="my-2 center-center table m-auto font-semibold text-gray-100 hover:text-gray-100 bg-indigo-500 hover:bg-indigo-900 rounded border border-solid border-indigo-600 border-opacity-25 py-3 px-8"
+          >
             Fill Audition Form
-              </button>
-            </Link>
-      </div>
+          </button>
+        </Link>
+      </div> */}
+      {/* pricing end */}
 
-      
+
       {/*  bg*/}
-      <div className="z-30 relative items-center justify-center w-full h-full overflow-auto">
-  <div
-    className="inset-0 h-screen bg-cover bg-center bg-[url('../images/bg.jpg')]"
-  ></div>
-  <div className="absolute inset-0 z-20 flex items-center justify-center h-screen w-full bg-gray-900 bg-opacity-75" />
-  <div className="absolute inset-0  z-30  flex flex-col items-center justify-center">
-    <div
-      className="shadow-2xl rounded-lg w-4/5 h-96 bg-cover bg-center bg-[url('../images/bg.jpg')]"
-    >
-      <div className="grid grid-cols-12 gap-1">
-        <div className="relative my-6 px-8 col-span-12 sm:col-span-12 sm:mb-12 md:col-span-7 lg:col-span-7 xxl:col-span-7">
-          <div className="border-l-4 border-gray-400 md:py-20 py-5 px-5 mx-2 absolute left-0">
-            <p className="italic text-white text-xl md:text-4xl lg:text-6xl uppercase text-center font-semibold">
-              Big Art Finding Talent
-            </p>
-          </div>
-          {/* <div className="text-gray-400 font-semibold text-xl mb-4"></div> */}
-          <div className="absolute border-gray-400 border-t-4 bottom-0 py-1 px-4 w-4/5" />
-        </div>
-        <div className="col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-5 xxl:col-span-5">
-          <div className="relative bg-indigo-900 h-full md:h-96 w-full bg-opacity-40 rounded-tr-lg rounded-br-lg">
-            <div className="p-8">
-              <p className="text-white text-lg mb-4">
+      {/* <div className="z-30 relative items-center justify-center w-full h-full overflow-auto">
+        <div
+          className="inset-0 h-screen bg-cover bg-center bg-[url('../images/bg.jpg')]"
+        ></div>
+        <div className="absolute inset-0 z-20 flex items-center justify-center h-screen w-full bg-gray-900 bg-opacity-75" />
+        <div className="absolute inset-0  z-30  flex flex-col items-center justify-center">
+          <div
+            className="shadow-2xl rounded-lg w-4/5 h-96 bg-cover bg-center bg-[url('../images/bg.jpg')]"
+          >
+            <div className="grid grid-cols-12 gap-1">
+              <div className="relative my-6 px-8 col-span-12 sm:col-span-12 sm:mb-12 md:col-span-7 lg:col-span-7 xxl:col-span-7">
+                <div className="border-l-4 border-gray-400 md:py-20 py-5 px-5 mx-2 absolute left-0">
+                  <p className="italic text-white text-xl md:text-4xl lg:text-6xl uppercase text-center font-semibold">
+                    Big Art Finding Talent
+                  </p>
+                </div>
+                
+                <div className="absolute border-gray-400 border-t-4 bottom-0 py-1 px-4 w-4/5" />
+              </div>
+              <div className="col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-5 xxl:col-span-5">
+                <div className="relative bg-indigo-900 h-full md:h-96 w-full bg-opacity-40 rounded-tr-lg rounded-br-lg">
+                  <div className="p-8">
+                    <p className="text-white text-lg mb-4">
                       Big art has brought you a golden opportunity. We have come up with a new concept in 2022 - 23 this year.</p>
-                      <p className="text-white text-lg mb-6">You Can Give This Singing Audition Through Your Phone Sitting At Home. If You Think You Are A Good Singer. And You Can Move Forward In The Field Of Singing. So You Can Give This Audition. The Process Of Auditioning Online Is Very Simple.
-              </p>
-              <div className="bottom-0 absolute p-2 right-0">
+                    <p className="text-white text-lg mb-6">You Can Give This Singing Audition Through Your Phone Sitting At Home. If You Think You Are A Good Singer. And You Can Move Forward In The Field Of Singing. So You Can Give This Audition. The Process Of Auditioning Online Is Very Simple.
+                    </p>
+                    <div className="bottom-0 absolute p-2 right-0">
                       <Link href="/audition">
                         <button className="opacity-75 bg-gray-100 hover:bg-indigo-900 hover:text-white text-sm font-bold py-2 px-4 rounded inline-flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span>Fill Audition Form</span>
-                      </button>
-                        </Link>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                          <span>Fill Audition Form</span>
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </div> */}
 
-{/* bg end */}
+      {/* bg end */}
 
       {/* about  */}
-     
+
 
 
     </>
